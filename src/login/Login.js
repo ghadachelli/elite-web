@@ -24,35 +24,41 @@ const Login = () => {
 
     if (user) {
       // Check user status:
+      //if the user approuved
       if (user.status === 'approved') {
         setLoginMessage('Login successful!');
       } else {
+        //the user not approuved
         setLoginMessage('Account not approved');
       }
     } else {
+      //if incorrect or empty
       setLoginMessage('Incorrect email or password.');
     }
   };
 
   return (
+    //these divs are for styling
     <div className={styles.App}>
     <div className={styles.authWrapper}>
     <div className={styles.authinner}>
+    {/*this form's type is onSubmit, so the function that handles the login is activated */}
     <form onSubmit={handleLogin}>
       <h3>Sign In</h3>
-
       <div className="mb-3">
         <label>Email address</label>
         <input
+          /*this indicates that the email is the value of the use state */
           value={email}
+          /*this will set the setEmail based on the user's input*/
           onChange={(e) => setEmail(e.target.value)}
           type="email"
-          className="form-control"
+          className={styles.formcontrol}
           placeholder="Enter email"
         />
       </div>
 
-      <div className="mb-3">
+      <div className={styles.mb3}>
         <label>Password</label>
         <input
           value={password}
@@ -63,8 +69,9 @@ const Login = () => {
         />
       </div>
 
+      {/* the button*/}
       <div className="d-grid">
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className={styles.btn}>
           Submit
         </button>
       </div>
@@ -74,6 +81,7 @@ const Login = () => {
 
       <p className={styles.forgotpassword}>
         Forgo {' '}
+        {/* this will redirect to the rest password page*/}
         <a href="/reset.password" style={{ color: 'blue', textDecoration: 'underline' }}> password?
         </a>
       </p>
