@@ -4,6 +4,7 @@ import RegistrationForm from "./inscription/RegistrationForm";
 import ConfirmationPage from "./inscription/ConfirmationPage";
 import Homepage from "./home/HelloWorld";
 import Login from "./login/Login";
+import ResetPass from "./login/ResetPass";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/Registration" element={<RegistrationForm />} />
         <Route path="/confirmation" element={<ConfirmationPage />} />
         <Route path="/sign-in" element={<Login />} />
+        <Route path="/resetpassword" element={<ResetPass />} />
       </Routes>
     </Router>
   );

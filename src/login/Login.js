@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import styles from "./login.module.css";
+
 
 const Login = () => {
   // States to store user's inputs throught the form
@@ -80,10 +82,9 @@ const Login = () => {
       {loginMessage && <p style={{ color: loginMessage === 'Login successful!' ? 'green' : 'red' }}>{loginMessage}</p>}
 
       <p className={styles.forgotpassword}>
-        Forgo {' '}
+        Forgot {' '}
         {/* this will redirect to the rest password page*/}
-        <a href="/reset.password" style={{ color: 'blue', textDecoration: 'underline' }}> password?
-        </a>
+        <Link to="/resetpassword" style={{ color: 'blue', textDecoration: 'underline' }}> password? </Link>
       </p>
     </form>
     </div>
