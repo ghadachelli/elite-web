@@ -10,20 +10,23 @@ const ResetPass = () => {
     { email: 'user@example1.com', password: 'password1234', status: 'not approved' },
   ];
 
- // Handle verification
+ // Handle verification, if it finds the email in the list bellow it will return TRUE
  const handleVerif = () => {
     const user = users.find((u) => u.email === email);
 
     if (user) {
       setVerifMessage(`Your password is: ${user.password}`);
+      //true it will give the password
     } else {
       setVerifMessage("This email is not associated with any account");
+      //false will give this message
     }
   };
 
   return (
     <div className={styles.authWrapper}>
       <div className={styles.authinner}>
+        {/*e.preventDefault() stops a form from refreshing the page so you can handle its submission with custom code in JavaScript or React.*/}
         <form onSubmit={(e) => e.preventDefault()}>
           <h3>Reset Password</h3>
           <div>
