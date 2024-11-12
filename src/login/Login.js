@@ -19,24 +19,26 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Find user by email and password
-    const user = users.find(
-      (u) => u.email === email && u.password === password
-    );
+    // Check if email and password fields are empty
+if (email === "" || password === "") {
+  setLoginMessage('Please insert your email and password');
+} else {
+  // Find user by email and password
+  const user = users.find((u) => u.email === email && u.password === password);
 
-    if (user) {
-      // Check user status:
-      //if the user approuved
-      if (user.status === 'approved') {
-        setLoginMessage('Login successful!');
-      } else {
-        //the user not approuved
-        setLoginMessage('Account not approved');
-      }
+  if (user) {
+    // Check user status
+    if (user.status === 'approved') {
+      setLoginMessage('Login successful!');
     } else {
-      //if incorrect or empty
-      setLoginMessage('Incorrect email or password.');
+      // User is not approved
+      setLoginMessage('Account not approved');
     }
+  } else {
+    // If credentials are incorrect
+    setLoginMessage('Incorrect email or password.');
+  }
+}
   };
 
   return (
