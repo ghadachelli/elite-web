@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";//bech thezni lel confirmation 
 import './registration.css';  // Ensure that you have a proper import for your CSS
 
+
 // Déclaration du composant RegistrationForm
 function RegistrationForm() {
   // Utilisation du hook useNavigate pour thezni lel page confirmation 
